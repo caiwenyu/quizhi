@@ -56,6 +56,13 @@ module.exports = function(app, passport, auth) {
         failureRedirect: '/signin'
     }), users.authCallback);
 
+    app.get('/auth/sina/callback', passport.authenticate('sina', {
+        failureRedirect: '/signin'
+    }), users.authCallback);
+
+
+
+
     //Finish with setting up the userId param
     app.param('userId', users.user);
 
